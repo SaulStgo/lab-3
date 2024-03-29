@@ -1,0 +1,35 @@
+<h1>Contact</h1>
+<p>Complete the following fields to contact us</p>
+
+<div class="container">
+  <h1 class="mt-5">Contact Us</h1>
+
+  <%= form_with(model: @contact, url: contact_path, local: true) do |form| %>
+    <div class="mb-3">
+      <%= form.label :name, "Name" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :email, "E-mail" %>
+      <%= form.email_field :email, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :message, "Message" %>
+      <%= form.text_area :message, class: "form-control" %>
+    </div>
+    <div id="message-container"></div>
+
+    <%= form.submit "Send", class: "btn btn-primary", onclick: "showMessage()" %>
+  <% end %>
+</div>
+
+<script>
+  function showMessage() {
+    var messageContainer = document.getElementById("message-container");
+    messageContainer.innerText = "Thank you for your message, we will contact you soon";
+  }
+</script>
+
+
+
+
